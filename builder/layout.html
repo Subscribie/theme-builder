@@ -1,96 +1,82 @@
-<!doctype html>
-<html lang=en>
+
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<title>{% block title %}{% endblock %} | {{ jamla['company']['name'] }}</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="manifest" href="/manifest.json">
-<link rel="stylesheet" href="/static/style.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/static/app.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Lato:900,400" rel="stylesheet">
-<meta name="theme-color" content="#1e88e5">
-<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
-<link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet"></head>
-<link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- ico -->
+    <link rel="icon" href="/favicon.ico">
+
+    <title>{% block title %}{% endblock %} | {{ jamla['company']['name'] }}</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" 
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
+    crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/style.css">
+
+    <!-- Special Font for Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+    <!-- Font -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
 
 <body>
 
-  <nav class="navbar is-info kcBlue">
-    <div class="container">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="/">
-          {% if jamla['company']['logo'] %}
-            <img src="/static/{{ jamla['company']['logo'] }}" alt="{{ jamla['company']['name'] }}">
-          {% else %}
-            {{ jamla['company']['name'] }}
-          {% endif %}
-        </a>
-      </div>
-    </div>
-  </nav>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="/">{{ jamla['company']['name'] }}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-  <div class="site-content">
-    {% block top %}
-    {% endblock top %}
-    <section class="hero kcBlue">
-      <div class="hero-body">
-        <div class="container" style="z-index:9999">
-            {% block hero %}{% endblock %}
-        </div>
-      </div>
-    </section>
-    <main class="main">
-      {% block body %}{% endblock %}
-    </main>
-
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/pricing">Pricing</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ url_for('auth.login') }}">Login</a>
+      </li>
+    </ul>
   </div>
-
-  <footer class="footer" style="padding: 3rem 1.5rem 3rem;">
-    <div class="container">
-      <div class="content has-text-centered">
-        <p>
-          By <a href="/">{{ jamla['company']['name'] }}</a>.
-          <br />
-        </p>
-        <small>Made possible with <a href="https://subscriptionwebsitebuilder.co.uk"
-                title="Subscription Website Builder">Subscription Website Builder</a></small>
-        <br />
-        <a href="{{ url_for('auth.login') }}">Login</a>
-        <br />
-        <a href="#" class="button is-small">Scroll back to top</a>
-      </div>
-    </div>
-  </footer>
+</nav>
 
 
+    {% block body %}{% endblock %}
+
+
+    <script src="/static/app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+    <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
 </body>
 
-<script type="application/javascript">
-    jQuery(document).ready(function ($) {
-      $('.modal-button').click(function() {
-        console.log("Modal Opened");
-        var target = $(this).data('target');
-        $('html').addClass('is-clipped');
-        $('#' + target).addClass('is-active');
-      });
-      $('.modal-background, .modal-close').click(function() {
-        $('html').removeClass('is-clipped');
-        $('.modal').removeClass('is-active');
-      });
-      $('.modal-card-head .delete').click(function() {
-        $('html').removeClass('is-clipped');
-        $('.modal').removeClass('is-active');
-      });
-      $('.modal-card-body #close').click(function() {
-        $('html').removeClass('is-clipped');
-        $('.modal').removeClass('is-active');
-      });
-      $(document).on('keyup',function(e) {
-        if (e.keyCode == 27) {
-          $('html').removeClass('is-clipped');
-          $('.modal').removeClass('is-active');
-        }
-      });
-    });
-  </script>
 </html>
