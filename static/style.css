@@ -1,6 +1,12 @@
 body {
     background: rgb(247, 247, 247);
+    font-family: 'Open Sans', sans-serif;
 }
+
+nav.navbar {
+    z-index: 1;
+}
+
 .jumbotron {
     background: linear-gradient(to right, #6a11cb 0%, #2575fc 84%);
     color: #fff;
