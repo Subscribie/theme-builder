@@ -43,7 +43,7 @@ nav.navbar {
 0));
     height: 1px;
     width: 20%;
-    animation: 0.7s ease-in 0s 1 alternate move_eye forwards;
+    animation: 0.8s ease-in 0s 1 alternate move_eye forwards;
 }
 
     
