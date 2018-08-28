@@ -33,9 +33,12 @@
               Upfont cost: &pound;0.00
               </p>
 		    {% endif %}
-            <ul class="list-unstyled mt-3 mb-4">
+            <ul class="text-left list-unstyled">
                 {% for sellingPoint in item['selling_points'] %}
-                    <li>{{ sellingPoint|safe }}</li>
+                    <li>
+                    <i class="fas fa-check-circle" style="color: #008000;"></i>
+                    {{ sellingPoint|safe }}
+                    </li>
                 {% endfor %}
             </ul>
             <a href="/new_customer?plan={{ item['sku'] }}"
