@@ -1,22 +1,48 @@
 {% extends "layout.html" %}
 {% block title %} Login {% endblock %}
 
-{% block hero %}
+{% block body %}
 
-    <h1 class="title is-1 has-text-white has-text-centered is-size-1-mobile">Manage My Shop</h1>
+<div class="jumbotron jumbotron-fluid">                                          
+    <div class="container">                                                      
+        <div class="row">                                                        
+            <div class="col-sm">                                                 
+            <h1 class="display-4">Login To Your Shop</h1>                       
+            </h2>                                                                
+            <h2 class="display-6">We'll send you a magic login link</h2>                                                                
+            <hr class="my-4">                                                    
+             <div class="flashy-container"><div class="flashy"></div></div>      
+            </div>                                                               
+            <div class="col-sm">                                                 
+                <img src="/static/shop.svg" 
+                    class="d-none d-lg-block d-md-block d-sm-block" />                    
+            </div>                                                               
+        </div>                                                                   
+    </div>                                                                       
+</div>
 
-    <div class="box" style="max-width:800px; margin:3rem auto;">
-      <h2 class="title is-3 has-text-centered is-size-3-mobile">Sign into your Subscriby account</h2>
-      <p>Pop your email address that you signed up with in the box below and we'll ping you an email, click the link in that email and you'll be securely logged in.</p>
-      <br />
-      <form method="POST" action="/login">
+<div class="container">
+
+    <form method="POST" action="{{ url_for('auth.login') }}">
   			{{ form.csrf_token }}
-        <input id="email" class="input is-large" name="email" type="email" placeholder="Email Address" value="">
-        <br />
-  			<button type="submit" style="margin-top:0.5rem" class="button is-large is-success is-fullwidth">
-          <span style="margin-right:1rem" class="icon"><i class="fas fa-magic"></i></span><span>Magic Login</span>
-        </button>
-  		</form>
-    </div>
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input id="email" class="form-control" name="email" type="email" 
+                placeholder="Email Address" aria-describedby="emailHelp" 
+                value="">
+            <small id="emailHelp" class="form-text text-muted">
+            Enter your account email address below and we'll email a secure 
+            login link, click the link in that email and you'll be securely 
+            logged in.
+            </small>
 
-{% endblock %}
+            <br />
+            <button type="submit" class="btn btn-success">
+              <span style="margin-right:1rem" class="icon">
+                <i class="fas fa-magic"></i>
+                </span><span>Magic Login</span>
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock body %}
