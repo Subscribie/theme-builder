@@ -9,15 +9,17 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Manage My Shop</li>
+    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
   </ol>
 </nav>
 
 <div class="container">
-    <h1>Manage My Shop</h1>
+    <h1 class="display-3">Dashboard</h1>
+
+    <p class="lead">Manage your shop settings.</p>
 
     <h2>Payment Gateways</h2>
-    <br />
+    <hr />
     <div class="row">
         <div class="col-sm">
             <p class="lead">Payment gateways allow you to take payment from your 
@@ -60,13 +62,14 @@
                 </a>
               </div>
             </div><!-- end card -->
+            <br />
         </div><!-- end .col-sm -->
 
         <div class="col-sm">
             <div class="card" style="width: 18rem;">
               <h5 class="card-header">GoCardless</h5>
               <img class="card-img-top" src="/static/gocardless-blue-rgb_2018.svg" 
-                alt="GoCardless Logo" style="min-height:136px">
+                alt="GoCardless Logo" style="min-height:136px;padding:15px">
               <div class="card-body">
                 <p class="card-text">
                 GoCardless allows you to take scheduled payments easily using 
@@ -88,6 +91,38 @@
               </div>
             </div><!-- end card -->
         </div><!-- end .col-sm -->
+    </div><!-- end .row -->
+
+    <h2 id="analytics">Analytics Integrations</h2>
+    <hr />
+    <div class="row">
+            <div class="card" style="width: 18rem;">
+              <h5 class="card-header">Google Tag Manager</h5>
+              <img src="/static/google_tag_manager.jpg" 
+                  alt="Google Tag Manager logo" 
+                  class="card-img-top" />
+                <div class="card-body">
+                    <p class="card-text">
+                     Track customer behaviour like the pros.
+                     <a href="https://marketingplatform.google.com/about/tag-manager/">
+                     Learn about using Tag Manager</a>
+                    </p>
+                    <a class="btn 
+                    {% if jamla['integrations']['google_tag_manager']['container_id'] %}
+                    btn-success
+                    {% else %}
+                    btn-info
+                    {% endif %}
+                    " href="/connect/google_tag_manager/manually">
+                    {% if google_tag_manager_connected %}
+                    Active! Click to reconnect Tag Manager
+                    {% else %}
+                        Activate
+                    {% endif %}
+                    </a>
+                </div><!-- end .card-body -->
+            </div><!-- end .card -->
+
     </div><!-- end .row -->
 
     <div class="row">
