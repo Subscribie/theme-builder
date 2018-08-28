@@ -5,8 +5,6 @@
 {% block body %}
 
 <div class="container">
-    <h1>Connect Google Tag Manager</h1>
-
 <nav aria-label="breadcrumb">                                                    
   <ol class="breadcrumb">                                                        
     <li class="breadcrumb-item"><a href="/">Home</a></li>                        
@@ -15,10 +13,11 @@
   </ol>                                                                          
 </nav>
 
-    <h2>Connect Google Tag Manager to your shop</h2>
-        <p class="lead">To start tracking using Google Tag manager, copy &amp; paste your 
-           <em>container id</em> into the form below.
-        </p>
+    <h1 class="display-4">Connect Tag Manager</h1>
+
+    <p class="lead">To start tracking using Google Tag manager, copy &amp; paste your 
+       <em>container id</em> into the form below.
+    </p>
 
           {% if jamla['integrations']['google_tag_manager']['container_id'] %}
             <div class="alert alert-primary" role="alert">
