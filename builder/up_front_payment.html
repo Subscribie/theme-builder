@@ -15,9 +15,6 @@
             <hr class="my-4">                                                    
              <div class="flashy-container"><div class="flashy"></div></div>      
             </div>                         
-            <div class="col-sm">
-            <img src="/static/money.svg" />
-            </div>
         </div>                                      
     </div>                                                                       
 </div> 
@@ -42,8 +39,8 @@
 	<script src="/static/up_front.js"></script>
     <form action="/up_front" method="post" id="payment-form" 
           class="text-center">
-      <input id="sid" name="sid" type="hidden" value="{{ sid }}"></input>
-      <input id="package" name="package" type="hidden" value="{{ package }}"></input>
+      <input id="sid" name="sid" type="hidden" value="{{ sid }}" />
+      <input id="package" name="package" type="hidden" value="{{ package }}" />
 
     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="{{ stripe_pub_key }}"
