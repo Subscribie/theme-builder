@@ -20,10 +20,9 @@
             </div>                                                               
         </div>
         <div class="container">                                                     
-            <div class="row"
+            <div class="row">
                 <div class="col-sm">                                                 
-                    <form action="/start-building" id="items" method="post" 
-                          enctype="multipart/form-data">
+<form enctype="multipart/form-data" action="/start-building" method="POST">
                         {{ form.csrf_token }}
 
                         <div class="row">
@@ -76,8 +75,7 @@
             </small>
             </label>
         </h3>
-        <input class="form-control-file" type="file" name="image-0" id="image-0"
-            aria-describedby="pictureHelpBlock-0">
+        <input type="file" name="image0" id="image-0" />
         <small id="pictureHelpBlock-0" class="form-text text-muted">
             This picture appears when your customers are choosing between 
             the different packages you offer.
