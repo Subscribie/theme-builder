@@ -42,7 +42,7 @@
                     <li>{{ sellingPoint|safe }}</li>
                 {% endfor %}
             </ul>
-            <a href="/new_customer?plan={{ item['sku'] }}"
+            <a href="/new_customer?plan={{ item['uuid'] }}&sku={{ item['sku'] }}"
                class="btn btn-lg btn-block btn-primary">Choose</a>
           </div>
         </div>
