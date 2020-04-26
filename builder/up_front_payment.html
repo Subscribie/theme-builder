@@ -23,7 +23,7 @@
 
 <h2>Order Summary:</h2>
 
-<h4>Plan: {{ package|capitalize() }}</h4>
+<h4>Plan: {{ item['title']|capitalize() }}</h4>
 <ul>
     {% for selling_point in selling_points %}
     <li>{{ selling_point }}</li>
