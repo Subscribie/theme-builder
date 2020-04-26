@@ -79,33 +79,26 @@
 
           <h3>Order Summary</h3>
 
-          {% for item in jamla['items'] %}
-            {% if item['sku'] == request.args.get('plan') %}
+          <h4>{{ item['title'] }}</h4>
+          <div>
+            <ul>
+            {% for selling_points in item['selling_points'] %}
+              <li>{{ selling_points }}</li>
+            {% endfor %}
+            </ul>
+          </div>
+          <div>
+            {% for requirement in item['requirements'] %}
+              {% if requirement['instant_payment'] == True %}
+                <p><b>Pay today:</b> &pound;{{ "%.2f"|format(item['sell_price']/100) }}</p>
+              {% endif %}
+              {% if requirement['subscription'] == True %}
+                <p><b>Price per month:</b> &pound;{{ "%.2f"|format(item['monthly_price']/100) }}</p>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div>
 
-              <h4>{{ item['title'] }}</h4>
-              <div>
-                <ul>
-                {% for selling_points in item['selling_points'] %}
-                  <li>{{ selling_points }}</li>
-                {% endfor %}
-                </ul>
-              </div>
-              <div>
-                {% for requirement in item['requirements'] %}
-                  {% if requirement['instant_payment'] == True %}
-                    <p><b>Pay today:</b> &pound;{{ "%.2f"|format(item['sell_price']/100) }}</p>
-                  {% endif %}
-                  {% if requirement['subscription'] == True %}
-                    <p><b>Price per month:</b> &pound;{{ "%.2f"|format(item['monthly_price']/100) }}</p>
-                  {% endif %}
-                {% endfor %}
-              </div>
-              <div>
-
-              </div>
-
-            {% endif %}
-          {% endfor %}
 
     <input type=submit class="btn btn-primary" value="Next Step">
 
