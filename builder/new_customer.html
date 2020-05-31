@@ -79,21 +79,21 @@
 
           <h3>Order Summary</h3>
 
-          <h4>{{ item['title'] }}</h4>
+          <h4>{{ item.title }}</h4>
           <div>
             <ul>
-            {% for selling_points in item['selling_points'] %}
-              <li>{{ selling_points }}</li>
+            {% for selling_point in item.selling_points %}
+              <li>{{ selling_point.point }}</li>
             {% endfor %}
             </ul>
           </div>
           <div>
             {% for requirement in item['requirements'] %}
               {% if requirement['instant_payment'] == True %}
-                <p><b>Pay today:</b> &pound;{{ "%.2f"|format(item['sell_price']/100) }}</p>
+                <p><b>Pay today:</b> &pound;{{ "%.2f"|format(item.sell_price/100) }}</p>
               {% endif %}
-              {% if requirement['subscription'] == True %}
-                <p><b>Price per month:</b> &pound;{{ "%.2f"|format(item['monthly_price']/100) }}</p>
+              {% if requirement.subscription == True %}
+                <p><b>Price per month:</b> &pound;{{ "%.2f"|format(item.monthly_price/100) }}</p>
               {% endif %}
             {% endfor %}
           </div>
