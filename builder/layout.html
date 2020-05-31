@@ -12,7 +12,7 @@
     <!-- ico -->
     <link rel="icon" href="/favicon.ico">
 
-    <title>{% block title %}{% endblock %} | {{ jamla['company']['name'] }}</title>
+    <title>{% block title %}{% endblock %} | {{ company.name }}</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" 
@@ -36,30 +36,30 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-{% if jamla['integrations']['google_tag_manager']['container_id'] 
-   and jamla['integrations']['google_tag_manager']['active']
-%}
-    <!-- Google Tag Manager -->
-    <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+{% if integration.google_tag_manager_container_id                                
+   and integration.google_tag_manager_active                                     
+%}                                                                               
+    <!-- Google Tag Manager -->                                                  
+    <script>                                                                     
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':                   
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],    
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=        
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer',
-    '{{ jamla['integrations']['google_tag_manager']['container_id'] }}');
-    </script>
-    <!-- End Google Tag Manager --> 
-{% endif %}
+    })(window,document,'script','dataLayer',                                     
+    '{{ integration.google_tag_manager_container_id }}');                        
+    </script>                                                                    
+    <!-- End Google Tag Manager -->                                              
+{% endif %} 
 
-{% if jamla['integrations']['hotjar']['account_id'] 
-   and jamla['integrations']['hotjar']['active']
+{% if integration.hotjar_account_id
+   and integration.hotjar_active
 %}
 
 <!-- Hotjar Tracking Code for https://subscriptionwebsitebuilder.co.uk -->
 <script>
     (function(h,o,t,j,a,r){
         h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:{{ jamla['integrations']['hotjar']['account_id'] }},hjsv:6};
+        h._hjSettings={hjid:{{ integration.hotjar_account_id }},hjsv:6};
         a=o.getElementsByTagName('head')[0];
         r=o.createElement('script');r.async=1;
         r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
@@ -68,31 +68,30 @@
 </script>
 {% endif %}
 
-{% if jamla['integrations']['tawk']['property_id'] 
-   and jamla['integrations']['tawk']['active']
-%}
-    <!-- Tawk Chat -->
-    <script type="text/javascript">
-        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-        (function(){
-        var
+{% if integration.tawk_property_id                                               
+   and integration.tawk_active                                                   
+%}                                                                               
+    <!-- Tawk Chat -->                                                           
+    <script type="text/javascript">                                              
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();                    
+        (function(){                                                             
+        var                                                                      
         s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-        s1.async=true;
-        s1.src='https://embed.tawk.to/{{ jamla['integrations']['tawk']['property_id'] }}/default';
-        s1.charset='UTF-8';
-        s1.setAttribute('crossorigin','*');
-        s0.parentNode.insertBefore(s1,s0);
-        })();
-        </script>
-    <!-- End Tawk Chat -->
+        s1.async=true;                                                           
+        s1.src='https://embed.tawk.to/{{ integration.tawk_property_id }}/default';
+        s1.charset='UTF-8';                                                      
+        s1.setAttribute('crossorigin','*');                                      
+        s0.parentNode.insertBefore(s1,s0);                                       
+        })();                                                                    
+        </script>                                                                
+    <!-- End Tawk Chat -->                                                       
 {% endif %}
-
 </head>
 
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="/">{{ jamla['company']['name'] }}</a>
+  <a class="navbar-brand" href="/">{{ company.name }}</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

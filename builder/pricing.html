@@ -12,9 +12,8 @@
 
     <div class="container">
       <div class="card-deck mb-3 text-center">
-        {% for item in jamla['items'] %}
+        {% for item in items %}
 
-        {% if item['archived'] is not sameas True %}
         <div class="card mb-4 shadow-sm">
           <div class="card-header">
             <h4 class="my-0 font-weight-normal">
@@ -23,12 +22,12 @@
           </div>
           <div class="card-body">
             <h1 class="card-title pricing-card-title">
-            &pound;{{ "%.2f"|format(item['monthly_price']/100) }}
+            &pound;{{ "%.2f"|format(item.monthly_price/100) }}
             <small class="text-muted">/ mo</small>
             </h1>
 		    {% if item['sell_price'] %}
               <p class="text-muted">
-              Upfront cost: &pound;{{ "%.2f"|format(item['sell_price']/100) }}
+              Upfront cost: &pound;{{ "%.2f"|format(item.sell_price/100) }}
               </p>
 		    {% else %}
               <p class="text-muted">
@@ -36,18 +35,17 @@
               </p>
 		    {% endif %}
             <ul class="text-left list-unstyled">
-                {% for sellingPoint in item['selling_points'] %}
+                {% for sellingPoint in item.selling_points %}
                     <li>
                     <i class="fas fa-check-circle" style="color: #008000;"></i>
-                    {{ sellingPoint|safe }}
+                    {{ sellingPoint.point|safe }}
                     </li>
                 {% endfor %}
             </ul>
-            <a href="/new_customer?plan={{ item['uuid'] }}&sku={{ item['sku'] }}"
+            <a href="/new_customer?plan={{ item.uuid }}&sku={{ item.sku }}"
                class="btn btn-lg btn-block btn-primary">Choose</a>
           </div>
         </div>
-        {% endif %} {# end filter archived items from pricing page #}
         {% endfor %}
       </div>
 
