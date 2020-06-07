@@ -39,7 +39,7 @@
 		    {% endif %}
             <ul class="list-unstyled mt-3 mb-4">
                 {% for sellingPoint in item.selling_points %}
-                    <li>{{ sellingPoint|safe }}</li>
+                    <li>{{ sellingPoint.point|safe }}</li>
                 {% endfor %}
             </ul>
             <a href="/new_customer?plan={{ item.uuid }}"
