@@ -16,8 +16,7 @@
 
     <div class="container">
       <div class="card-deck mb-3 text-center">
-        {% for item in jamla['items'] %}
-        {% if item['archived'] is not sameas True %}
+        {% for item in items %}
         <div class="card mb-4 shadow-sm">
           <div class="card-header">
             <h4 class="my-0 font-weight-normal">
@@ -26,12 +25,12 @@
           </div>
           <div class="card-body">
             <h1 class="card-title pricing-card-title">
-            &pound;{{ "%.2f"|format(item['monthly_price']/100) }}
+            &pound;{{ "%.2f"|format(item.monthly_price/100) }}
             <small class="text-muted">/ mo</small>
             </h1>
 		    {% if item['sell_price'] %}
               <p class="text-muted">
-              Upfont cost: &pound;{{ "%.2f"|format(item['sell_price']/100) }}
+              Upfont cost: &pound;{{ "%.2f"|format(item.sell_price/100) }}
               </p>
 		    {% else %}
               <p class="text-muted">
@@ -39,15 +38,14 @@
               </p>
 		    {% endif %}
             <ul class="list-unstyled mt-3 mb-4">
-                {% for sellingPoint in item['selling_points'] %}
+                {% for sellingPoint in item.selling_points %}
                     <li>{{ sellingPoint|safe }}</li>
                 {% endfor %}
             </ul>
-            <a href="/new_customer?plan={{ item['uuid'] }}&sku={{ item['sku'] }}"
+            <a href="/new_customer?plan={{ item.uuid }}"
                class="btn btn-lg btn-block btn-primary">Choose</a>
           </div>
         </div>
-        {% endif %} {# end filter archived items from pricing page #}
         {% endfor %}
       </div>
 
