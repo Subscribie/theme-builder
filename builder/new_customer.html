@@ -42,26 +42,27 @@
     <div class="form-group">
         <label for="given_name">First Name</label>
         <input type="text" name="given_name" id="given_name" class="form-control"
-            placeholder="John" value="{{ given_name }}" required>
+            placeholder="John" value="{{ session.get('given_name', '') }}" required>
     </div>
 
     <div class="form-group">
         <label for="family_name">Last Name</label>
         <input type="text" name=family_name id=family_name class="form-control" 
-            placeholder="Smith" value="{{ family_name }}" required>
+            placeholder="Smith" value="{{ session.get('family_name', '') }}" required>
     </div>
     
     <div class="form-group">
         <label for="email">Email</label>
         <input type="email" name=email id=email class="form-control" 
-            placeholder="johnsmith@gmail.com" value="{{ email }}" required>
+            placeholder="johnsmith@gmail.com" value="{{ session.get('email', '') }}" required>
     </div>
 
     <h3>Address</h3>
     <div class="form-group">
         <label for="address_line_one">Address line 1</label>
         <input type="text" name="address_line_one" id="address_line_one" 
-            class="form-control" aria-describedby="addressHelp" required>
+            class="form-control" aria-describedby="addressHelp" 
+            value="{{ session.get('address_line_one', '') }}" required>
         <small id="addressHelp" class="form-text text-muted">
         We need this for billing purposes, that's all!
         </small>
@@ -69,12 +70,14 @@
 
     <div class="form-group">
         <label for="city">City</label>
-        <input  type="text" name="city" id="city" class="form-control" required>
+        <input  type="text" name="city" id="city" class="form-control" 
+          value="{{ session.get("city", '') }}" required>
     </div>
 
     <div class="form-group">
         <label class="label">Post Code</label>
-        <input  type="text" name="postcode" id="postcode" class="form-control" required>
+        <input  type="text" name="postcode" id="postcode" class="form-control" 
+          value="{{ session.get("postcode", '') }}" required>
     </div>
 
           <h3>Order Summary</h3>
