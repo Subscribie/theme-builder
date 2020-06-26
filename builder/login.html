@@ -9,7 +9,7 @@
             <div class="col-sm">                                                 
             <h1 class="display-4">Login To Your Shop</h1>                       
             </h2>                                                                
-            <h2 class="display-6">We'll send you a magic login link</h2>                                                                
+            <h2 class="display-6">We'll redirect you to your shop</h2>                                                                
             <hr class="my-4">                                                    
              <div class="flashy-container"><div class="flashy"></div></div>      
             </div>                                                               
@@ -23,7 +23,17 @@
 
 <div class="container">
 
-    <form method="POST" action="{{ url_for('auth.login') }}">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-warning" role="alert">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="{{ url_for('builder.show_owner_login') }}">
   			{{ form.csrf_token }}
         <div class="form-group">
             <label for="email">Email address</label>
@@ -31,16 +41,15 @@
                 placeholder="Email Address" aria-describedby="emailHelp" 
                 value="" required>
             <small id="emailHelp" class="form-text text-muted">
-            Enter your account email address below and we'll email a secure 
-            login link, click the link in that email and you'll be securely 
-            logged in.
+            Enter your account email address below and we'll locate your shop,
+            and send you to it.
             </small>
 
             <br />
             <button type="submit" class="btn btn-success">
               <span style="margin-right:1rem" class="icon">
                 <i class="fas fa-magic"></i>
-                </span><span>Magic Login</span>
+                </span><span>Go to my shop</span>
             </button>
         </div>
     </form>
