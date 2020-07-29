@@ -24,11 +24,13 @@
             </h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title">
-            &pound;{{ "%.2f"|format(item.monthly_price/100) }}
-            <small class="text-muted">/ mo</small>
-            </h1>
-		    {% if item['sell_price'] %}
+            {% if item.requirements.subscription %}
+              <h1 class="card-title pricing-card-title">
+              &pound;{{ "%.2f"|format(item.interval_amount/100) }}
+              <small class="text-muted">/ {{ item.interval_unit }}</small>
+              </h1>
+            {% endif %}
+		    {% if item.requirements.instant_payment %}
               <p class="text-muted">
               Upfont cost: &pound;{{ "%.2f"|format(item.sell_price/100) }}
               </p>
