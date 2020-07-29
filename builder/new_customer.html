@@ -91,14 +91,12 @@
             </ul>
           </div>
           <div>
-            {% for requirement in item['requirements'] %}
-              {% if requirement['instant_payment'] == True %}
-                <p><b>Pay today:</b> &pound;{{ "%.2f"|format(item.sell_price/100) }}</p>
-              {% endif %}
-              {% if requirement.subscription == True %}
-                <p><b>Price per month:</b> &pound;{{ "%.2f"|format(item.monthly_price/100) }}</p>
-              {% endif %}
-            {% endfor %}
+          {% if item.requirements.instant_payment == True %}
+            <p><b>Pay today:</b> &pound;{{ "%.2f"|format(item.sell_price/100) }}</p>
+          {% endif %}
+          {% if item.requirements.subscription == True %}
+            <p><b>Price:</b> &pound;{{ "%.2f"|format(item.interval_amount/100) }} / {{ item.interval_unit }}</p>
+          {% endif %}
           </div>
           <div>
 
