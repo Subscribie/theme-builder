@@ -6,9 +6,9 @@
 <div class="container">
 
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-      <h1 class="display-4">Try Subscribie For A Tenner <br />
-        <small class="text-muted">That's less than 6 pence a day...</small></h1>
-      <p class="lead">Play with Subscribie for 3 months.
+      <h1 class="display-4">Try Subscribie Now<br />
+        <small class="text-muted">Your site is ready to start selling</small></h1>
+      <p class="lead">Play with Subscribie for a month.
         No obligation thereafter, just renew your subscription when you want to
         continue. Easy!
       </p>
@@ -28,6 +28,10 @@
               <h1 class="card-title pricing-card-title">
               &pound;{{ "%.2f"|format(item.interval_amount/100) }}
               <small class="text-muted">/ {{ item.interval_unit }}</small>
+              </h1>
+            {% else %}
+              <h1 class="card-title pricing-card-title">
+              &pound;0.00
               </h1>
             {% endif %}
 		    {% if item.requirements.instant_payment %}
