@@ -6,8 +6,8 @@
 <div class="container">
 
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-        <h1 class="display-4">3 months for £10</h1>
-        <small class="lead">That's less than 12 pence a day...</small>
+        <h1 class="display-4">Simple Pricing</h1>
+        <small class="lead">Start selling your subscriptions now.</small>
     </div>
 
     <div class="container">
@@ -21,11 +21,13 @@
             </h4>
           </div>
           <div class="card-body">
+          {% if item.requirements.subscription %}
             <h1 class="card-title pricing-card-title">
-            &pound;{{ "%.2f"|format(item.monthly_price/100) }}
+            &pound;{{ "%.2f"|format(item.interval_amount/100) }}
             <small class="text-muted">/ mo</small>
             </h1>
-		    {% if item['sell_price'] %}
+          {% endif %}
+		    {% if item.requirements.instant_payment %}
               <p class="text-muted">
               Upfront cost: &pound;{{ "%.2f"|format(item.sell_price/100) }}
               </p>
