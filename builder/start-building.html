@@ -57,9 +57,7 @@
 
 <div class="container">
 
-  <div class="card mx-auto item">
-    <form method="post" action="#" enctype="multipart/form-data">
-      {{ form.csrf_token }}
+  <div class="card mx-auto plan">
 
       <div class="form-group">
         <h3><label for="title-0">Package or Service name
@@ -68,8 +66,8 @@
           </small>
           </label>
         </h3>
-        <input class="form-control" type="text" name="title-0" id="title-0" aria-describedby="itemHelpBlock-0" placeholder="E.g. Coffee Subscription" required="">
-        <small id="itemHelpBlock-0" class="form-text text-muted">
+        <input class="form-control" type="text" name="title-0" id="title-0" aria-describedby="planHelpBlock-0" placeholder="E.g. Coffee Subscription" required="">
+        <small id="planHelpBlock-0" class="form-text text-muted">
           What subscription service do you sell? Enter the title here. 
           Perhaps you sell coffee every month <i class="fas fa-coffee"></i>,
           or, perhaps a funky personal trainer collecting monthly fees for your 
@@ -184,7 +182,6 @@
 
 </div>
 
-</form>
 </section>
 
 <section id="building-site-overlay">

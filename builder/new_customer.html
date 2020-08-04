@@ -82,20 +82,20 @@
 
           <h3>Order Summary</h3>
 
-          <h4>{{ item.title }}</h4>
+          <h4>{{ plan.title }}</h4>
           <div>
             <ul>
-            {% for selling_point in item.selling_points %}
+            {% for selling_point in plan.selling_points %}
               <li>{{ selling_point.point }}</li>
             {% endfor %}
             </ul>
           </div>
           <div>
-          {% if item.requirements.instant_payment == True %}
-            <p><b>Pay today:</b> &pound;{{ "%.2f"|format(item.sell_price/100) }}</p>
+          {% if plan.requirements.instant_payment == True %}
+            <p><b>Pay today:</b> &pound;{{ "%.2f"|format(plan.sell_price/100) }}</p>
           {% endif %}
-          {% if item.requirements.subscription == True %}
-            <p><b>Price:</b> &pound;{{ "%.2f"|format(item.interval_amount/100) }} / {{ item.interval_unit }}</p>
+          {% if plan.requirements.subscription == True %}
+            <p><b>Price:</b> &pound;{{ "%.2f"|format(plan.interval_amount/100) }} / {{ plan.interval_unit }}</p>
           {% endif %}
           </div>
           <div>

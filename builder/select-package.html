@@ -16,27 +16,27 @@
 
     <div class="container">
       <div class="card-deck mb-3 text-center">
-        {% for item in items %}
+        {% for plan in plans %}
         <div class="card mb-4 shadow-sm">
           <div class="card-header">
             <h4 class="my-0 font-weight-normal">
-               {{ item['title']|safe }}
+               {{ plan['title']|safe }}
             </h4>
           </div>
           <div class="card-body">
-            {% if item.requirements.subscription %}
+            {% if plan.requirements.subscription %}
               <h1 class="card-title pricing-card-title">
-              &pound;{{ "%.2f"|format(item.interval_amount/100) }}
-              <small class="text-muted">/ {{ item.interval_unit }}</small>
+              &pound;{{ "%.2f"|format(plan.interval_amount/100) }}
+              <small class="text-muted">/ {{ plan.interval_unit }}</small>
               </h1>
             {% else %}
               <h1 class="card-title pricing-card-title">
               &pound;0.00
               </h1>
             {% endif %}
-		    {% if item.requirements.instant_payment %}
+		    {% if plan.requirements.instant_payment %}
               <p class="text-muted">
-              Upfont cost: &pound;{{ "%.2f"|format(item.sell_price/100) }}
+              Upfont cost: &pound;{{ "%.2f"|format(plan.sell_price/100) }}
               </p>
 		    {% else %}
               <p class="text-muted">
@@ -44,11 +44,11 @@
               </p>
 		    {% endif %}
             <ul class="list-unstyled mt-3 mb-4">
-                {% for sellingPoint in item.selling_points %}
+                {% for sellingPoint in plan.selling_points %}
                     <li>{{ sellingPoint.point|safe }}</li>
                 {% endfor %}
             </ul>
-            <a href="/new_customer?plan={{ item.uuid }}"
+            <a href="/new_customer?plan={{ plan.uuid }}"
                class="btn btn-lg btn-block btn-primary">Choose</a>
           </div>
         </div>
