@@ -23,16 +23,16 @@
 
 <h2>Order Summary:</h2>
 
-<h4>Plan: {{ item.title|capitalize() }}</h4>
+<h4>Plan: {{ plan.title|capitalize() }}</h4>
 <ul>
-    {% for selling_point in item.selling_points %}
+    {% for selling_point in plan.selling_points %}
     <li>{{ selling_point.point }}</li>
     {% endfor %}
 </ul>
 
    <h4>Total: 
     <small class="text-muted">
-        &pound; {{ "%.2f"|format(item.sell_price/100) }}
+        &pound; {{ "%.2f"|format(plan.sell_price/100) }}
     </small>
    </h4>
    
