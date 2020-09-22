@@ -14,10 +14,15 @@
 		  	<hr class="my-4">
 		  	<p>Create a subscription based website &amp; take recurring payments 
                online easily. We don't take a cut!</p>
-			<a class="btn btn-primary btn-lg " href="/start-building" 
-                role="button">Start now</a> 
+            <form action="/start-building">
+            <div class="form-group">
+            <input type="email" name="email" placeholder="Enter your email" class="form-control" />
+            </div>
+			<button class="btn btn-primary btn-lg " href="/start-building" 
+                role="button">Start now</button>
 			<a href="#content" class="btn btn-secondary btn-lg active" 
                 role="button" >Learn more</a>
+            </form>
 			</div>
             <div class="col-sm">
 		  	<img src="/static/start2.svg" class="d-sm-none d-md-block img-fluid"/>
@@ -68,7 +73,7 @@
      sign up to purchase the service or items you sell on subsciption.</p>
 
 <div class="card-group">
-  <div class="card">
+  <div class="card zoom">
     <img class="card-img-top" src="/static/steps/1.svg" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">1. Customer chooses a package</h5>
@@ -82,7 +87,7 @@
       </small></p>
     </div>
   </div>
-  <div class="card">
+  <div class="card zoom">
     <img class="card-img-top" src="/static/steps/2.svg" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">2. Customer enters contact info</h5>
@@ -95,7 +100,7 @@
       </p>
     </div>
   </div>
-  <div class="card">
+  <div class="card zoom">
     <img class="card-img-top" src="/static/steps/3.svg" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">3. A recurring subscription it set-up!</h5>
@@ -116,9 +121,35 @@
 
   <div>
   <ul>
-	  <li><a href="https://lawncuttingpro.subscriby.shop/">Lawn Cutting Subscription</a></li>
+      <li><a href="https://halleandharpertreats.co.uk/" target="_blank">Halle and Harper Treats</a></li>
+      <li><a href="https://eyelashclub.subscriby.shop/" target="_blank">Eyelash Club</a></li>
 	  <li><a href="https://karmabroadband.subscriby.shop/">Broadband Subscription</a></li>
   </ul>
+      <style>
+        .demo-sites img {
+           box-shadow: 3px 3px 5px 6px #ccc;
+           margin: 5px;
+           margin-bottom: 20px;
+        }
+        .zoom {
+          transition: transform .2s; /* Animation */
+        }
+
+        .zoom:hover {
+          transform: scale(1.01);
+        }
+      </style>
+      <div class="demo-sites">
+      <a href="https://halleandharpertreats.co.uk/" target="_blank">
+        <img src="/static/sell-dog-treats-subscription.png" width="250px" class="zoom" />
+      </a>
+      <a href="https://eyelashclub.subscriby.shop/" target="_blank">
+        <img src="/static/eyelash-subscription-business.png" width="250px" class="zoom" />
+      </a>
+      <a href="https://karmabroadband.subscriby.shop/">
+        <img src="/static/start-a-subscription-website-example.png" width="250px" class="zoom" />
+      </a>
+      </div>
   </div>
 
 

@@ -236,7 +236,15 @@ check_input.forEach((input, i) => {
   document.getElementById('building-site-overlay').style.display="flex";
   window.scrollTo(0,0);
   });
-  
-  
+
+/* Prefill email if set */
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+
+if (urlParams.get('email')) {
+    emailElm = document.getElementById('email')
+    emailElm.value = urlParams.get('email')
+}
+
 </script>
 {% endblock %}
