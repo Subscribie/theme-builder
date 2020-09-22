@@ -48,6 +48,19 @@
                     </li>
                 {% endfor %}
             </ul>
+            {% if plan.choice_groups %}
+            <h4>Choices</h4>
+             {% for choice_group in plan.choice_groups %}
+              <details>
+                <summary>{{ choice_group.title }} ({{ choice_group.options|count }} options)</summary>
+                <ul>
+                  {% for option in choice_group.options %}
+                  <li>{{ option.title }}</li>
+                  {% endfor %}
+                </ul>
+              </details>
+             {% endfor %}
+            {% endif %}
             <a href="/new_customer?plan={{ plan.uuid }}&sku={{ plan.sku }}"
                class="btn btn-lg btn-block btn-primary">Choose</a>
           </div>
